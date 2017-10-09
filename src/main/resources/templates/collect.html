@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Hello World!!</h1>
+<form method="post" action="/collect">
+	<p th:text="${tweetResult}"></p>
+	<input type="text" name="tweetText" />
+	<input type="submit" value="ツイート" />
+	
+	<table>
+		<tr>
+			<th>ツイート内容</th>
+		</tr>
+		<tr th:each="tweet : ${tweetList}">
+			<td th:text="${tweet}"></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
