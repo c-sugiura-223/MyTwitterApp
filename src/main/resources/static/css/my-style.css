@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.tweet-post-area {
+  max-width: 600px;
+}
+
+.btn-box {
+  margin: .5rem auto;
+}
+
+.tweet-counter {
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto .5rem;
+}
+
+.table .date {
+  min-width: 4rem;
+}
+
+.table .user {
+  min-width: 6rem;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.table .tweet {
+  min-width: 20rem;
+}

@@ -18,20 +18,20 @@ import twitter4j.TwitterFactory;
 import twitter4j.User;
 
 @Controller
-public class CollectController {
+public class TimelineController {
 
-	@RequestMapping(value="/collect", method=RequestMethod.GET)
+	@RequestMapping(value="/timeline", method=RequestMethod.GET)
 	public ModelAndView index(ModelAndView mav){
 		System.out.println("★★★★★★★★★★ index()");
-		mav.setViewName("collect");
+		mav.setViewName("timeline");
 		return mav;
 	}
 	
-	@RequestMapping(value="/collect", method=RequestMethod.POST)
-	public ModelAndView tweetCollect(@RequestParam("tweetText")String str, ModelAndView mav) throws TwitterException{
+	@RequestMapping(value="/timeline", method=RequestMethod.POST)
+	public ModelAndView tweetCollect(ModelAndView mav) throws TwitterException{
 		System.out.println("★★★★★★★★★★ tweetCollect()");
 		
-		// このファクトリインスタンスは再利用可能でスレッドセーフです
+		// タイムラインの取得
 	    Twitter twitter = TwitterFactory.getSingleton();
 	    List<Status> statuses = twitter.getHomeTimeline();
 	    ArrayList<String> nameList = new ArrayList<String>();
@@ -46,7 +46,7 @@ public class CollectController {
 		mav.addObject("nameList", nameList);
 		mav.addObject("tweetList", tweetList);
 		mav.addObject("tweetResult", "タイムラインを表示します！");
-		mav.setViewName("collect");
+		mav.setViewName("timeline");
 		return mav;
 	}
 }
